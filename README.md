@@ -18,7 +18,7 @@ footer. The palette, type and content are Cyan's.
 ## Mobile
 
 Checked at 320, 375, 768 and 1440 px with no horizontal overflow. On phones
-the hero scrim becomes a full wash, because the towers stand directly behind
+the hero scrim becomes a full wash, because the shape stands directly behind
 the copy there. The hero counters become a row of three, products sit two
 across, and the footer puts the brand block full width above the two lists.
 
@@ -79,12 +79,13 @@ else.
 - Every client logo came with a 2 px grey frame baked in, which is trimmed.
   `raw/clients/` holds all 101. Only the 40 named in `ROW_A` / `ROW_B` in
   `content.py` are exported.
-- The hero is Riyadh's financial district at night by Saif Al-Dhaher
-  (unsplash.com/photos/vAkHAP27QMk), free for commercial use under the
-  Unsplash License. Credit is given in the footer anyway. The right 23% of
-  the frame is cropped off so the towers sit clear of the headline. It
-  replaced the old site's three slides (a phone with chat bubbles, an API
-  graphic, and an AI-generated hooded figure at a bank of monitors).
+- The hero is a glowing teal polyhedron by Rostislav Uzunov
+  (unsplash.com/photos/B6AOQPcd7fQ), free for commercial use under the
+  Unsplash License. Credit is given in the footer anyway. The right 26% of
+  the frame is cropped off so the shape sits clear of the headline. It
+  replaced a Riyadh skyline (Saif Al-Dhaher), which replaced the old site's
+  three slides (a phone with chat bubbles, an API graphic, and an
+  AI-generated hooded figure at a bank of monitors).
 
 ## The contact form
 

@@ -164,8 +164,8 @@ def build():
 <main id="main">
   <!-- ══════════ 1 · HERO ══════════ -->
   <section class="hero" id="top">
-    <img class="hero-img on" src="assets/img/hero.webp" width="2000" height="1125" fetchpriority="high"
-         alt="The towers of Riyadh's financial district lit up at night, the city spread out behind them.">
+    <img class="hero-img on" src="assets/img/hero.webp" width="2400" height="1500" fetchpriority="high"
+         alt="A glowing teal wireframe polyhedron hovering above a reflective black floor.">
     <div class="shell">
       <h1 class="rise">Your partner in innovation, from the first line of code to the <em>server it runs on</em>.</h1>
       <p class="lede rise">
@@ -495,7 +495,7 @@ def build():
 
     <div class="foot-rule">
       <span>&copy; 2026 {LEGAL} All rights reserved.</span>
-      <span>Hero photograph: Saif Al-Dhaher on <a href="https://unsplash.com/photos/a-city-at-night-vAkHAP27QMk" target="_blank" rel="noopener">Unsplash</a></span>
+      <span>Hero image: Rostislav Uzunov on <a href="https://unsplash.com/photos/a-blue-and-green-light-shines-in-the-dark-B6AOQPcd7fQ" target="_blank" rel="noopener">Unsplash</a></span>
     </div>
   </div>
 </footer>

@@ -57,16 +57,39 @@ def open_raw(p):
     return Image.open(RAW / p)
 
 
-# ---- hero: Riyadh's financial district at night, by Saif Al-Dhaher on
-#      Unsplash (Unsplash License: free for commercial use, credit given in
-#      the footer anyway). The towers sit mid-frame in the original, right
-#      where the headline goes, so the right 23% is cropped away: that slides
-#      the Kingdom Centre and the lit towers into the right half, and leaves
-#      dark city lights under the copy. Then 16:9 with the towers high. ----
-im = open_raw("unsplash-riyadh-kafd-night-saifaldhaher.jpg")
-w, h = im.size
-im = im.crop((0, 0, round(w * 0.77), h))
-save(crop_ratio(im, 16 / 9, fy=0.3), "hero.webp", 2000, q=82)
+# ---- hero: a glowing teal polyhedron over a black mirror floor, by
+#      Rostislav Uzunov on Unsplash (Unsplash License: free for commercial
+#      use; credited in the footer anyway).
+#      In the original the shape sits dead centre and fills most of the
+#      height, so at hero size it ran under the header and into the headline.
+#      The frame's edges are a flat near-black, so the canvas is extended
+#      instead: more ground on the left and above, a little cropped off the
+#      right. That shrinks the shape and moves it into the right half. The
+#      seams are feathered so the extension cannot be seen. ----
+def extend(im, canvas, at, feather=320):
+    """Paste `im` onto a canvas of its own edge colour at `at`, fading its
+    left and top edges into that ground over `feather` pixels."""
+    ground = (11, 13, 12)
+    out = Image.new("RGB", canvas, ground)
+    w, h = im.size
+    mask = Image.new("L", (w, h), 255)
+    px = mask.load()
+    for x in range(feather):
+        v = round(255 * (x / feather) ** 1.5)
+        for y in range(h):
+            px[x, y] = min(px[x, y], v)
+    for y in range(feather):
+        v = round(255 * (y / feather) ** 1.5)
+        for x in range(w):
+            px[x, y] = min(px[x, y], v)
+    out.paste(im, at, mask)
+    return out
+
+
+im = open_raw("unsplash-teal-polyhedron-rostislavuznv.jpg").convert("RGB")
+# 16:10 canvas 3913 x 2446: the shape's centre lands at ~68% across, its top
+# ~30% down (the photo sits on the canvas floor), so it clears a 72px header and a left-aligned headline
+save(extend(im, (3913, 2446), (861, 2446 - 2160)), "hero.webp", 2400, q=84)
 
 # ---- about: the team at the desk ----
 save(crop_ratio(open_raw("solution.jpg"), 16 / 9, fy=0.45), "team.webp", 1280)
