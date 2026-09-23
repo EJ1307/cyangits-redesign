@@ -15,6 +15,26 @@ footer. The palette, type and content are Cyan's.
 
     python serve.py              http://127.0.0.1:8106   (launch config: cyangits)
 
+## Mobile
+
+Checked at 320, 375, 768 and 1440 px with no horizontal overflow. On phones
+the hero scrim becomes a full wash, because the towers stand directly behind
+the copy there. The hero counters become a row of three, products sit two
+across, and the footer puts the brand block full width above the two lists.
+
+## Hosting
+
+GitHub Pages, from a `gh-pages` branch that holds only the contents of
+`site/`. All asset paths are relative, so the page works under
+`/<repo>/` as well as at a domain root. After a rebuild:
+
+    git add -A && git commit -m "..."
+    git push origin main
+    git subtree split --prefix site -b gh-pages && git push -f origin gh-pages
+
+`raw/` (about 30 MB of original downloads) is git-ignored, so
+`prepare_assets.py` only runs on this machine.
+
 ## Rebuild
 
     python tools/prepare_assets.py   raw/ -> site/assets (images, logos)
@@ -25,7 +45,7 @@ footer. The palette, type and content are Cyan's.
 
 ## Section flow
 
-    1  Hero            three slides, the eyebrow, the line, three counters
+    1  Hero            one still photograph, the line, three counters
     2  About           the team photo, the company, mission and vision, four counters
     3  Services        eleven numbered cards plus an "ask" card, three rows of four
     4  Why Cyan        the spine: three promises while building, three once live
@@ -59,9 +79,12 @@ else.
 - Every client logo came with a 2 px grey frame baked in, which is trimmed.
   `raw/clients/` holds all 101. Only the 40 named in `ROW_A` / `ROW_B` in
   `content.py` are exported.
-- Hero slide 3 is the old site's AI illustration of a hooded figure at a
-  bank of monitors. It reads as "hacker" more than "IT partner". Consider
-  swapping it for a real office or team photograph.
+- The hero is Riyadh's financial district at night by Saif Al-Dhaher
+  (unsplash.com/photos/vAkHAP27QMk), free for commercial use under the
+  Unsplash License. Credit is given in the footer anyway. The right 23% of
+  the frame is cropped off so the towers sit clear of the headline. It
+  replaced the old site's three slides (a phone with chat bubbles, an API
+  graphic, and an AI-generated hooded figure at a bank of monitors).
 
 ## The contact form
 
