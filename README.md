@@ -24,13 +24,13 @@ across, and the footer puts the brand block full width above the two lists.
 
 ## Hosting
 
-GitHub Pages, from a `gh-pages` branch that holds only the contents of
-`site/`. All asset paths are relative, so the page works under
-`/<repo>/` as well as at a domain root. After a rebuild:
+Vercel, connected to github.com/EJ1307/cyangits-redesign. Every push to
+`main` deploys. There is no build step on Vercel: `vercel.json` points it
+straight at `site/`, which is the finished page. So rebuild locally first,
+then commit `site/` with the change:
 
-    git add -A && git commit -m "..."
-    git push origin main
-    git subtree split --prefix site -b gh-pages && git push -f origin gh-pages
+    python tools/build.py
+    git add -A && git commit -m "..." && git push origin main
 
 `raw/` (about 30 MB of original downloads) is git-ignored, so
 `prepare_assets.py` only runs on this machine.
